@@ -1,9 +1,7 @@
 package com.example.contact_store.security;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
 
-import java.util.Collection;
 
 public class UserPrincipalAuthentication extends AbstractAuthenticationToken {
     private final UserPrincipal principal;
@@ -15,12 +13,12 @@ public class UserPrincipalAuthentication extends AbstractAuthenticationToken {
     }
 
     @Override
-    public UserPrincipal getCredentials() {
-        return principal;
+    public Object getCredentials() {
+        return null;
     }
 
     @Override
-    public Object getPrincipal() {
-        return null;
+    public UserPrincipal getPrincipal() {
+        return principal;
     }
 }
