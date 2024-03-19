@@ -11,4 +11,9 @@ public class TestController {
     public String loggedIn(){
         return "Greetings";
     }
+
+    @GetMapping("/secured")
+    public String secured() {
+        return "If you see this, you're logged in";
+    }
 }
