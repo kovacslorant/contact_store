@@ -1,0 +1,71 @@
+
+<div class="container shadow my-3 p-5 rounded bg-opacity-2" >
+  <form [formGroup]="logInForm" >
+    <div class="mb-3">
+      <label
+        for="email"
+        class="form-label"
+      >Email:</label>
+
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        placeholder="Enter your email here..."
+        formControlName="email"
+      >
+
+      <small
+        class="text-danger"
+        *ngIf="logInForm.get('email')?.errors?.['serverError']"
+      >
+        {{logInForm.get('email')?.getError('serverError')}}
+      </small>
+
+      <small
+        *ngIf="logInForm.get('email')?.invalid
+        && logInForm.get('email')?.touched
+        && !logInForm.get('email')?.errors?.['serverError']"
+        class="text-danger"
+      >
+        Please enter your email here!
+      </small>
+    </div>
+    <div class="mb-3">
+      <label
+        for="password"
+        class="form-label"
+      >Password:</label>
+
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Enter your password here..."
+        formControlName="password"
+      >
+
+      <small
+        class="text-danger"
+        *ngIf="logInForm.get('password')?.errors?.['serverError']"
+      >
+        {{logInForm.get('password')?.getError('serverError')}}
+      </small>
+
+      <small
+        *ngIf="logInForm.get('password')?.invalid
+        && logInForm.get('password')?.touched
+        && !logInForm.get('password')?.errors?.['serverError']"
+        class="text-danger"
+      >
+        Please enter your Password here!
+      </small>
+    </div>
+    <div *ngIf="errorMessage">
+      <small class="text-danger">
+        {{errorMessage}}
+      </small>
+    </div>
+    <button (click)="logIn()" [disabled]="logInForm.invalid" type="submit" class="btn btn-primary" >Log In</button>
+  </form>
+</div>

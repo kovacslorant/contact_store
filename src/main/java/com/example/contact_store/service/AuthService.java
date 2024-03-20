@@ -2,6 +2,7 @@ package com.example.contact_store.service;
 
 import com.example.contact_store.domain.UserEntity;
 import com.example.contact_store.dto.login.LoginResponse;
+import com.example.contact_store.dto.user.UserDetailsItem;
 import com.example.contact_store.security.JwtIssuer;
 import com.example.contact_store.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,7 @@ public class AuthService {
 
         var token = jwtIssuer.issue(principal.getUserId(), principal.getEmail(), role);
         return LoginResponse.builder()
+                .userDetailsItem(new UserDetailsItem(principal.getEmail(), role.toString()))
                 .accessToken(token)
                 .build();
     }
