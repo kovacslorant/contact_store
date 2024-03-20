@@ -1,3 +1,9 @@
+.full-name{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+}
 .btn {
   background-color: #183D3D;
   border: none;
@@ -6,6 +12,10 @@
   width: 30%;
   backdrop-filter: blur(8px);
 }
-input{
+
+.btn:hover{
+  background-color: #93B1A6
+}
+input, select{
   background-color: rgba(255, 255, 255, 0.4);
 }

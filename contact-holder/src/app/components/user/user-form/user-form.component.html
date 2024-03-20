@@ -1,0 +1,138 @@
+<div class="container w-50 shadow my-3 p-5 rounded">
+  <h1 class="mb-4 text-center">Registration </h1>
+  <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+    <div class="full-name">
+      <div class="mb-3">
+        <label
+          for="firstName"
+          class="form-label"
+        >First Name:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          placeholder="First Name"
+          formControlName="firstName"
+        >
+
+        <small
+          class="text-danger"
+          *ngIf="userForm.get('firstName')?.errors?.['serverError']"
+        >
+          {{userForm.get('firstName')?.getError('serverError')}}
+        </small>
+
+        <small
+          *ngIf="userForm.get('firstName')?.invalid
+        && userForm.get('firstName')?.touched
+        && !userForm.get('firstName')?.errors?.['serverError']"
+          class="text-danger"
+        >
+          Please enter your first name!
+        </small>
+
+      </div>
+
+
+      <div class="mb-3">
+        <label
+          for="lastName"
+          class="form-label"
+        >Last Name:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          placeholder="Last Name"
+          formControlName="lastName"
+        >
+
+        <small
+          class="text-danger"
+          *ngIf="userForm.get('lastName')?.errors?.['serverError']"
+        >
+          {{userForm.get('lastName')?.getError('serverError')}}
+        </small>
+
+        <small
+          *ngIf="userForm.get('lastName')?.invalid
+        && userForm.get('lastName')?.touched
+        && !userForm.get('lastName')?.errors?.['serverError']"
+          class="text-danger"
+        >
+          Please enter your last name!
+        </small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label
+        for="email"
+        class="form-label"
+      >Email:</label>
+
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        placeholder="E-mail"
+        formControlName="email"
+      >
+
+      <small
+        class="text-danger"
+        *ngIf="userForm.get('email')?.errors?.['serverError']"
+      >
+        {{userForm.get('email')?.getError('serverError')}}
+      </small>
+
+      <small
+        *ngIf="userForm.get('email')?.invalid
+        && userForm.get('email')?.touched
+        && !userForm.get('email')?.errors?.['serverError']"
+        class="text-danger"
+      >
+        Please enter your email here!
+      </small>
+    </div>
+
+
+    <div class="mb-3">
+      <label
+        for="password"
+        class="form-label"
+      >Password:</label>
+
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        formControlName="password"
+      >
+
+      <small
+        class="text-danger"
+        *ngIf="userForm.get('password')?.errors?.['serverError']"
+      >
+        {{userForm.get('password')?.getError('serverError')}}
+      </small>
+
+      <small
+        *ngIf="userForm.get('password')?.invalid
+        && userForm.get('password')?.touched
+        && !userForm.get('password')?.errors?.['serverError']"
+        class="text-danger"
+      >
+        Please enter your password here!
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary mx-2">Save</button>
+      <button (click)="clearForm()" type="button" class="btn btn-primary">Reset</button>
+    </div>
+  </form>
+</div>

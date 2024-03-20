@@ -3,6 +3,7 @@ import {UserAuthService} from "./user-auth.service";
 import {UserLoginModel} from "../models/user-login.model";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
+import {UserCreateCommandModel} from "../models/user-create-command.model";
 
 const BASE_URL = "http://localhost:8080"
 
@@ -18,5 +19,9 @@ export class UserService {
 
   login(data: UserLoginModel): Observable<any>{
     return this.http.post(BASE_URL + '/auth/login', data, {responseType:"text"});
+  }
+
+  saveUser(data: UserCreateCommandModel) {
+    return this.http.post(BASE_URL + '/users/register', data)
   }
 }

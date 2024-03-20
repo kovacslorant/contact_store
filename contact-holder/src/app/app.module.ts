@@ -9,12 +9,14 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
 import {UserService} from "./services/user.service";
+import { UserFormComponent } from './components/user/user-form/user-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
