@@ -16,7 +16,12 @@ public class TestController {
 
     @GetMapping("/secured")
     public String secured(@AuthenticationPrincipal UserPrincipal principal) {
-        return "If you see this, you're logged in" + principal.getEmail()
+        return "If you see this, you're logged in " + principal.getEmail()
+                + "User ID: " + principal.getUserId();
+    }
+    @GetMapping("/admin")
+    public String admin(@AuthenticationPrincipal UserPrincipal principal) {
+        return "If you see this, you're logged in as Admin " + principal.getEmail()
                 + "User ID: " + principal.getUserId();
     }
 }
