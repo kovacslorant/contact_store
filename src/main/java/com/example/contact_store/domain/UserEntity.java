@@ -6,6 +6,9 @@ import jakarta.validation.constraints.Email;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 @Data
@@ -32,6 +35,13 @@ public class UserEntity {
 
     @Column
     private String roleType;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
+    fetch = FetchType.LAZY)
+    private List<Contact> contacts = new ArrayList<>();
+
+
+
 
 
 
