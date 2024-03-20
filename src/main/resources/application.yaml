@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/contacts
-    username: contact-postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
     password: mysecretpassword
     driver-class-name: org.postgresql.Driver
   jpa:
@@ -12,6 +12,7 @@ spring:
       show-sql: true
     hibernate:
       ddl-auto: update
+    generate-ddl: true
 
 security:
   jwt:
