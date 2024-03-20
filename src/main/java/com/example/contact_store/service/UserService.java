@@ -83,4 +83,8 @@ public class UserService implements UserDetailsService {
         userListItem.setRoleType(userEntity.getRoleType());
         return userListItem;
     }
+
+    public UserEntity findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 }
