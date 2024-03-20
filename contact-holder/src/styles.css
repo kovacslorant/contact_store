@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+html{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body{
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background: url('../../../contact_store/contact-holder/src/assets/andrew-neel-cckf4TsHAuw-unsplash.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
