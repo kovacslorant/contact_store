@@ -26,7 +26,7 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<List<UserListItem>> getAllUser() {
         List<UserListItem> allUser = userService.getAllUser();
         log.info("User list page is requested");
