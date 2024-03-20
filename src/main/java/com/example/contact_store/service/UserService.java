@@ -1,7 +1,6 @@
 package com.example.contact_store.service;
 
-import com.example.contact_store.domain.Address;
-import com.example.contact_store.domain.Contact;
+
 import com.example.contact_store.domain.UserEntity;
 import com.example.contact_store.dto.user.UserCreateCommand;
 import com.example.contact_store.dto.user.UserListItem;
@@ -86,5 +85,8 @@ public class UserService implements UserDetailsService {
 
     public UserEntity findByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+    public UserEntity findById(Long id) {
+        return userRepository.findById(id).orElseThrow();
     }
 }
